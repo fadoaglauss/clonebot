@@ -49,18 +49,17 @@ function Login(){
 
   const comeBackHandleGetWorkFlow = await handleGetWorkFlow(guid(), keyOrigin);
 
-  const {result = data } = comeBackHandleGetWorkFlow
 
-  await handleSetPublishedFlow(result.resource, keyTarget);
+  await handleSetPublishedFlow(comeBackHandleGetWorkFlow.data.resource, keyTarget);
 
-  await handleGetWorkFlowPublished(guid(), result.resource, keyOrigin );
+  await handleGetWorkFlowPublished(guid(), comeBackHandleGetWorkFlow.data.resource, keyOrigin );
 
   await handleGetGlobais(guid(), keyOrigin);
 
 
 
  const comeBckHandleGetGlobaisPublished = await
- handleGetGlobaisPublished(guid(), result.resource , keyTarget);
+ handleGetGlobaisPublished(guid(), comeBackHandleGetWorkFlow.data.resource , keyTarget);
   
  if (comeBckHandleGetGlobaisPublished.status === 200) {
 
