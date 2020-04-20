@@ -201,3 +201,148 @@ button.clear {
 .membros{
   color:white;
 }
+
+#clone {
+  background: 
+  url('./logo/logo.png'),      
+  url('./logo/logo.png'),transparent;
+  background-size: 100%;
+  background-repeat: no-repeat;
+
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+  margin: 0 auto !important;
+  float: none !important;
+}
+
+#clone-loader {
+  
+  height: 20%;
+}
+
+.clone {
+  text-align: center;
+  font-size: 30px;
+  width:400px;
+  height: 400px;
+  padding:'30px'
+}
+
+.element {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  left: 0;
+  margin-top: 60px;
+}
+
+.element-1 {
+  background: 
+  url('./logo/logo.png'),transparent;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  -webkit-animation: shake-rotate 15s infinite;
+  animation: shake-rotate 15s infinite;
+}
+
+.element-2 {
+  background: 
+  url('./logo/logo.png') ,transparent;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  -webkit-animation: shake-rotate-2 15s infinite;
+  animation: shake-rotate-2 15s infinite;
+  margin-top: -100px;
+}
+
+
+
+@-webkit-keyframes shake-rotate {
+  0%, 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90%, 100% {
+    left: 50px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  5%,
+  15%,
+  25%,
+  35%,
+  45%,
+  55%,
+  65%,
+  75%,
+  85%,
+  95% {
+    left: -50px;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+}
+
+@keyframes shake-rotate {
+  0%, 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90%, 100% {
+    left: 50px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  5%,
+  15%,
+  25%,
+  35%,
+  45%,
+  55%,
+  65%,
+  75%,
+  85%,
+  95% {
+    left: -50px;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+}
+
+@-webkit-keyframes shake-rotate-2 {
+  100%, 90%, 80%, 70%, 60%, 50%, 40%, 30%, 20%, 10%, 0% {
+    left: -50px;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  95%,
+  85%,
+  75%,
+  65%,
+  55%,
+  45%,
+  35%,
+  25%,
+  15%,
+  5% {
+    left: 50px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes shake-rotate-2 {
+  100%, 90%, 80%, 70%, 60%, 50%, 40%, 30%, 20%, 10%, 0% {
+    left: -50px;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  95%,
+  85%,
+  75%,
+  65%,
+  55%,
+  45%,
+  35%,
+  25%,
+  15%,
+  5% {
+    left: 50px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}

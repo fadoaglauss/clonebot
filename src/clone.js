@@ -100,9 +100,9 @@ function Clone(){
 
 
     const loader = (
-      <div className="load">
-        <div id="space-loader"></div>
-        <div id="loader"></div><br />
+      <div className="clone">
+       <div class="element element-1"></div>
+       <div class="element element-2"></div><br />
         <p style={{fontSize:'14px', color:'white'}}>
           Aguarde enquanto estamos clonando seu bot ...</p>
       </div>
