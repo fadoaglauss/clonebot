@@ -12,7 +12,7 @@ import guid from './utils/guid';
 import 'react-notifications/lib/notifications.css';
 
 
-function Login(){
+function Clone(){
   
    const [keyOrigin, setKeyOrigin] = useState(localStorage.getItem('keyOne'));
    const [keyTarget, setKeyTarget] = useState(localStorage.getItem('keyTwo'));
@@ -119,13 +119,13 @@ function Login(){
 
                 <input  value={keyOrigin} 
                 onChange={(event) => setLocaStorageKey1(event.target.value)} 
-                type="text" name="origem" className="" id="exampleInputEmail1" aria-describedby="emailHelp" 
+                type="text" name="origem" className=""   
                 placeholder="Digite o bot origem." required />
               </div>
               <div className="form-group">
                 <input  value={keyTarget} 
                 onChange={(event) => setLocaStorageKey2(event.target.value)} 
-                type="texta" name="destion" className="" id="exampleInputPassword1" 
+                type="text" name="destion" className="" 
                 placeholder="Digite o bot target." required />
                 
               </div>
@@ -150,4 +150,4 @@ function Login(){
   }
 
 
-export default Login;
+export default Clone;

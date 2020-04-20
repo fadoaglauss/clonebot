@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Switch, Route } from 'react-router-dom'
-import Login from './login'
+import Clone from './clone'
 
 function App() {
 
@@ -27,7 +27,7 @@ function App() {
     const children = (
       <div style={{width:'400px', height:'400px'}}>
         <Switch>
-            <Route path="/" component={(Login)} />
+            <Route path="/" component={(Clone)} />
         </Switch>
       </div>
     )
