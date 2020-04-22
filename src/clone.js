@@ -29,10 +29,9 @@ function Clone(){
     
   }
 
-  const keyOne = keyOrigin.split('key');
-  const keyTwo = keyTarget.split('key');
 
-  if (keyOne.includes('key') || keyTwo.includes('key') ) {
+
+  if (!keyOrigin.includes('key') || !keyTarget.includes('key') ) {
     NotificationManager.warning('key digitada, não é um key válida', 'aviso!');
     return false;
   } 
