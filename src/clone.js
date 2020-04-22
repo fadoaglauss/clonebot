@@ -30,8 +30,7 @@ function Clone(){
   }
 
 
-
-  if (!keyOrigin.includes('key') || !keyTarget.includes('key') ) {
+  if (!keyOrigin.includes('Key') || !keyTarget.includes('Key') ) {
     NotificationManager.warning('key digitada, não é um key válida', 'aviso!');
     return false;
   } 
