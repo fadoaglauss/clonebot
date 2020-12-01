@@ -6,8 +6,9 @@ import handleSetWorkingConfiguration from './services/handleSetWorkingConfigurat
 import handleGetWorkFlow from './services/handleGetWorkFlow';
 import handleGetGlobais from './services/handleGetGlobais';
 import handleGetGlobaisPublished from './services/handleGetGlobaisPublished';
-import handleSetPublishedFlow from './services/handleSetPublishedFlow'
-import handleGetWorkFlowPublished from './services/handleGetWorkFlowPublished'
+import handleSetPublishedFlow from './services/handleSetPublishedFlow';
+import handleGetWorkFlowPublished from './services/handleGetWorkFlowPublished';
+import setGlobal from './services/handleSetGlobal';
 import guid from './utils/guid';
 import 'react-notifications/lib/notifications.css';
 
@@ -51,15 +52,16 @@ function Clone(){
   await handleSetPublishedFlow(comeBackHandleGetWorkFlow.data.resource, keyTarget);
 
   await handleGetWorkFlowPublished(guid(), comeBackHandleGetWorkFlow.data.resource, keyOrigin );
-
-  await handleGetGlobais(guid(), keyOrigin);
-
-
-
- const comeBckHandleGetGlobaisPublished = await
- handleGetGlobaisPublished(guid(), comeBackHandleGetWorkFlow.data.resource , keyTarget);
   
- if (comeBckHandleGetGlobaisPublished.status === 200) {
+  const getGlobal = await handleGetGlobais(guid(), keyOrigin);
+
+  const teste  =  await setGlobal(guid(), getGlobal.data.resource , keyTarget);
+  
+  const comeBckHandleGetGlobaisPublished = await
+  handleGetGlobaisPublished(guid(), comeBackHandleGetWorkFlow.data.resource , keyTarget);
+  
+  if (comeBckHandleGetGlobaisPublished.status === 200) {
+    
 
    setTimeout(() => {
    setLoading(false);
