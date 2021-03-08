@@ -1,4 +1,5 @@
-![alt text](https://raw.githubusercontent.com/Wilkor/clonebot/master/public/assets/CloneBot.PNG)
+![alt text](https://raw.githubusercontent.com/fadoaglauss/clonebot/master/public/assets/dark_clone_blip_bots.png)
+![alt text](https://raw.githubusercontent.com/fadoaglauss/clonebot/master/public/assets/light_clone_blip_bots.png)
 
 This Chrome Extension was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 

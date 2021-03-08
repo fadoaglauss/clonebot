@@ -1,15 +1,16 @@
 {
-  "short_name": "CloneBots",
-  "name": "CloneBots",
+  "short_name": "Clone BLiP Bots",
+  "name": "Clone BLiP Bots",
   "manifest_version": 2,
   "browser_action": {
     "default_popup": "index.html",
-    "default_title": "CloneBots"
+    "default_title": "Clone BLiP Bots"
   },
   "icons": {
     "16": "logo.png",
     "48": "logo.png",
     "128": "logo.png"
   },
-  "version": "0.8"
+  "version": "0.9",
+  "description": "Extensão para facilitar a cópia entre bots do BLiP."
 }
