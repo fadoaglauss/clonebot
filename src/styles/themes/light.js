@@ -6,5 +6,6 @@ export default {
     secundary: '#80E3EB',
     background: '#E9F7F8',
     font: '#6D6F71',
+    buttonColor: 'white'
   },
 }

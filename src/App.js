@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Switch, Route } from 'react-router-dom'
-import Clone from './clone'
+import Clone from './Clone'
 import { ThemeProvider } from 'styled-components'
 import light from './styles/themes/light'
 import dark from './styles/themes/dark'

@@ -21,4 +21,7 @@ export default createGlobalStyle`
         outline: none;
       }
 
+    h2 {
+      color: ${props => props.theme.colors.front};
+    }
 `

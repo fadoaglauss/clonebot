@@ -1,23 +1,41 @@
 import React, { useState } from 'react'
-import { NotificationContainer, NotificationManager } from 'react-notifications'
 import Switch from './components/Switch'
 import { Input, Home } from './styles/clone'
+import { LoadingText } from './styles/loader'
 import { StyledButton } from './styles/buttons'
 import 'react-notifications/lib/notifications.css'
-import { LoadingText } from './styles/loader'
+import { NotificationContainer, NotificationManager } from 'react-notifications'
+import Checkbox from './components/Checkbox'
 
-import handleResources from './services/handleResources'
+import handleFlow from './services/handleFlow.js'
+import handleGeneralConfiguration from './services/handleGeneralConfiguration.js'
 import handleGlobalActions from './services/handleGlobalActions'
-import handlePublishedGlobalActions from './services/handlePublishedGlobalActions'
-import handleWorkingConfiguration from './services/handleWorkingConfiguration'
-import handleWorkingFlow from './services/handleWorkingFlow'
-import handlePublishedFlow from './services/handlePublishedFlow'
-import handlePublishedConfiguration from './services/handlePublishedConfiguration'
+import handleResources from './services/handleResources'
 
 function Clone({ theme, toogleTheme }) {
   const [originKey, setOriginKey] = useState(localStorage.getItem('keyOne'))
   const [targetKey, setTargetKey] = useState(localStorage.getItem('keyTwo'))
   const [loading, setLoading] = useState(false)
+  const [resourceOption, setResourceOption] = useState(
+    localStorage.getItem('resourceOption')
+      ? localStorage.getItem('resourceOption')
+      : 'false',
+  )
+  const [advancedCofigOption, setAdvancedCofigOption] = useState(
+    localStorage.getItem('advancedCofigOption')
+      ? localStorage.getItem('advancedCofigOption')
+      : 'false',
+  )
+  const [globalActionsOption, setGlobalActionsOption] = useState(
+    localStorage.getItem('globalActionsOption')
+      ? localStorage.getItem('globalActionsOption')
+      : 'false',
+  )
+  const [flowOption, setFlowOption] = useState(
+    localStorage.getItem('flowOption')
+      ? localStorage.getItem('flowOption')
+      : 'false',
+  )
 
   async function start(event) {
     event.preventDefault()
@@ -37,16 +55,20 @@ function Clone({ theme, toogleTheme }) {
 
     setLoading(true)
 
-    handleResources(originKey, targetKey)
-    handleWorkingConfiguration(originKey, targetKey)
-    handlePublishedConfiguration(originKey, targetKey)
+    if (localStorage.getItem('flowOption') == 'true') {
+      handleFlow(originKey, targetKey)
+    }
+    if (localStorage.getItem('advancedCofigOption') == 'true') {
+      handleGeneralConfiguration(originKey, targetKey)
+    }
+    if (localStorage.getItem('globalActionsOption') == 'true') {
+      handleGlobalActions(originKey, targetKey)
+    }
+    if(localStorage.getItem('resourceOption') == 'true') {
+      handleResources(originKey, targetKey)
+    }
 
-    handleWorkingFlow(originKey, targetKey)
-    handlePublishedFlow(originKey, targetKey)
-
-    handleGlobalActions(originKey, targetKey)
-
-    const { status } = await handlePublishedGlobalActions(originKey, targetKey)
+    let status = 200
 
     if (status === 200) {
       setTimeout(() => {
@@ -72,10 +94,34 @@ function Clone({ theme, toogleTheme }) {
     localStorage.setItem('keyTwo', e)
   }
 
+  function setGlobalActions(e) {
+    setGlobalActionsOption(e)
+    localStorage.setItem('globalActionsOption', e)
+  }
+
+  function setAdvancedCofig(e) {
+    setAdvancedCofigOption(e)
+    localStorage.setItem('advancedCofigOption', e)
+  }
+
+  function setFlowCheck(e) {
+    setFlowOption(e)
+    localStorage.setItem('flowOption', e)
+  }
+
+  function setResource(e) {
+    setResourceOption(e)
+    localStorage.setItem('resourceOption', e)
+  }
+
   function clear() {
     localStorage.removeItem('keyOne')
     localStorage.removeItem('keyTwo')
     localStorage.removeItem('localTheme')
+    localStorage.removeItem('resourceOption')
+    localStorage.removeItem('advancedCofigOption')
+    localStorage.removeItem('globalActionsOption')
+    localStorage.removeItem('flowOption')
 
     setOriginKey('')
     setTargetKey('')
@@ -89,6 +135,7 @@ function Clone({ theme, toogleTheme }) {
       <LoadingText>Aguarde enquanto estamos clonando seu bot ...</LoadingText>
     </div>
   )
+
   const page = (
     <div className='fadeIn animated' style={{ padding: '30px' }}>
       <Home>
@@ -135,6 +182,28 @@ function Clone({ theme, toogleTheme }) {
                 className=''
                 placeholder='Digite a key do bot de destino'
                 required
+              />
+            </div>
+            <div className='form-group'>
+              <Checkbox
+                label={'Ações Globais'}
+                checked={JSON.parse(globalActionsOption)}
+                onClickEvent={setGlobalActions}
+              />
+              <Checkbox
+                label={'Configurações Gerais'}
+                checked={JSON.parse(advancedCofigOption)}
+                onClickEvent={setAdvancedCofig}
+              />
+              <Checkbox
+                label={'Fluxo'}
+                checked={JSON.parse(flowOption)}
+                onClickEvent={setFlowCheck}
+              />
+              <Checkbox
+                label={'Recursos'}
+                checked={JSON.parse(resourceOption)}
+                onClickEvent={setResource}
               />
             </div>
 
