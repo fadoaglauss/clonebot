@@ -9,7 +9,7 @@ async function setWorkingConfiguration(resource, key) {
 }
 
 async function setPublishedConfiguration(resource, key) {
-  return await command.set( '/buckets/blip_portal%3Abuilder_published_configuration', 'application/json', resource, key)
+  return await command.set('/buckets/blip_portal%3Abuilder_published_configuration', 'application/json', resource, key)
 }
 
 

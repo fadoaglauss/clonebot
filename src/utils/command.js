@@ -21,11 +21,21 @@ class Command {
   }
 
   static get(uri, key) {
-    return this._send(key, 'get', uri)
+    const response = this._send(key, 'get', uri)
+    if (response.status != 'success') {
+      throw new Error(`Get ${uri} status is not success`)
+    }
+
+    return response
   }
 
   static set(uri, type, resource, key) {
-    return this._send(key, 'set', uri, type, resource)
+    const response = this._send(key, 'set', uri, type, resource)
+    if (response.status != 'success') {
+      throw new Error(`Set ${uri} status is not success`)
+    }
+
+    return response
   }
 }
 
